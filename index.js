@@ -14,7 +14,72 @@ app.use(
   })
 )
 
-
+app.get('/', (request, response) => {
+    response.json(
+      {
+        "message": "Welcome to the Hostel Management System API",
+        "routes": [
+          {
+            "route": "/inmates",
+            "methods": [
+              "GET",
+              "POST"
+            ]
+          },
+          {
+            "route": "/inmates/:id",
+            "methods": [
+              "GET"
+             
+            ]
+          },
+          {
+            "route": "/stock",
+            "methods": [
+              "GET",
+              "POST"
+            ]
+          },
+          {
+            "route": "/stock/:id",
+            "methods": [
+              "GET"
+             
+            ]
+          },
+          {
+            "route": "/complaints",
+            "methods": [
+              "GET","POST"
+            ]
+          },
+          {
+            "route": "/complaints/:id",
+            "methods": [
+              "GET"
+             
+            ]
+          },
+          
+          {
+            "route": "/attendance/:id",
+            "methods": [
+              "GET"
+              
+            ]
+          },
+          {
+            "route": "/vacantrooms",
+            "methods": [
+              "GET"
+              
+            ]
+          },
+          
+        ]
+      }
+    )
+  })
 
 app.get('/inmates',db.getInmates)
 app.get('/inmates/:id',db.getInmateById)
