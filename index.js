@@ -75,13 +75,6 @@ app.get('/', (request, response) => {
               
             ]
           },
-          {
-            "route": "/vacantrooms/:id",
-            "methods": [
-              "PUT"
-              
-            ]
-          }
           
         ]
       }
@@ -100,7 +93,6 @@ app.get('/stock/:id',db.getStockByMonth)
 app.post('/stock',db.createStockEntry)
 app.get('/attendance/:id',db.getAttendance)
 app.get('/vacantrooms',db.getVacancies)
-app.put('/vacantrooms/:id', db.updateVac)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
