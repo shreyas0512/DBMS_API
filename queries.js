@@ -173,9 +173,28 @@ const getVacancies = (request, response) => {
     })
 }
 
+const updateVac = (request, response) => {
+    const id = parseInt(request.params.id)
+
+    pool.query(
+        'UPDATE rooms SET vacancies = vacancies-1 WHERE room_no = $1',
+        [id],
+        (error, results) => {
+            if (error) {
+                return response.status(400).json({
+                    success: false,
+                    error: error.name,
+                    message: error.message
+                })
+            }
+            response.status(200).send(`User modified with ID: ${room_no}`)
+        }
+    )
+}
+
 
 
 
 module.exports = {
-    getInmates,getAttendance,getVacancies,getComplaintById,getComplaints,getInmateById,createInmate,createComplaint,getStockDetails,getStockByMonth,createStockEntry
+    getInmates,getAttendance,getVacancies,getComplaintById,getComplaints,getInmateById,createInmate,createComplaint,getStockDetails,getStockByMonth,createStockEntry,updateVac
 }
