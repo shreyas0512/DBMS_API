@@ -187,7 +187,7 @@ const updateVac = (request, response) => {
                     message: error.message
                 })
             }
-            response.status(200).send(`User modified with ID: ${room_no}`)
+            response.status(200).send(`modified with ID: `)
         }
     )
 }
